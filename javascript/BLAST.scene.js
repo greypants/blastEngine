@@ -4,8 +4,14 @@ window.BLAST = window.BLAST || {};
 
 	var scene = blast.scene = {
 		init: function() {
-			blast.ship = new blast.Ship();
+			scene.createObjects();
 			blast.frames.actions.push(scene.frameActions);
+		},
+
+		createObjects: function() {
+			scene.missiles = [];
+			scene.enemies = [];
+			scene.ship = new blast.Ship();
 		},
 
 		checkKeys: function() {
@@ -14,26 +20,33 @@ window.BLAST = window.BLAST || {};
 			var spacebarIsDown = 32 in blast.keysDown;
 
 			if(!leftIsDown && !rightIsDown){
-				blast.ship.vx = 0;
+				scene.ship.vx = 0;
 			}
 
 			if(leftIsDown) {
-				blast.ship.vx = blast.ship.speed * blast.frames.delta * -1;
+				scene.ship.vx = scene.ship.speed * blast.frames.delta * -1;
 			}
 
 			if(rightIsDown) {
-				blast.ship.vx = blast.ship.speed * blast.frames.delta;
+				scene.ship.vx = scene.ship.speed * blast.frames.delta;
 			}
 
 			if(spacebarIsDown) {
-				blast.ship.fire();
+				scene.ship.fire();
 			}
 		},
 
 		frameActions: function() {
 			blast.ctx.clearRect(0, 0, blast.canvas.width, blast.canvas.height);
-			blast.ship.move();
-			blast.ship.draw();
+			scene.ship.move();
+			scene.ship.draw();
+			for (var i = scene.missiles.length; i--;) {
+				var missile = scene.missiles[i];
+				if(missile.isLive) {
+					missile.move();
+					missile.draw();
+				}
+			}
 		}
 	};
 

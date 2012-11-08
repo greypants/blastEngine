@@ -18,6 +18,7 @@ window.BLAST = window.BLAST || {};
 
 		initGlobalVariables: function() {
 			blast.keysDown = [];
+			blast.missiles = [];
 		},
 
 		isCollision: function(a, b){

@@ -3,9 +3,8 @@ window.BLAST = window.BLAST || {};
 (function(blast) {
 
 	blast.Enemy = function(startX, direction) {
-		direction = direction || 1;
-		this.init({
-			direction: direction,
+		var properties = {
+			direction: direction || 1,
 			height: 40,
 			maxMissiles: 5,
 			missiles: [],
@@ -19,9 +18,10 @@ window.BLAST = window.BLAST || {};
 			width: 80,
 			x: startX + blast.core.getRandomNumber(-25, 25),
 			y: 25
-		});
-		// this.loadMissiles();
+		};
+		this.init(properties);
 		this.vx = this.speed;
+		// this.loadMissiles();
 	};
 
 	blast.Enemy.prototype = new blast.Rectangle();
@@ -55,7 +55,6 @@ window.BLAST = window.BLAST || {};
 
 	blast.Enemy.prototype.destroy = function() {
 		var _this = this;
-		console.log('Explode!');
 		_this.color = 'red';
 		setTimeout(function(){
 			_this.color = 'black';

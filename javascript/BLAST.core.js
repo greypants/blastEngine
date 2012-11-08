@@ -16,12 +16,16 @@ window.BLAST = window.BLAST || {};
 			window.addEventListener('keyup', core.keyup, false);
 		},
 
+		getRandomNumber: function(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		},
+
 		initGlobalVariables: function() {
 			blast.keysDown = [];
 			blast.missiles = [];
 		},
 
-		isCollision: function(a, b){
+		collision: function(a, b){
 			return  a.x <= (b.x + b.width) &&
 					b.x <= (a.x + a.width) &&
 					a.y <= (b.y + b.height) &&

@@ -10,6 +10,7 @@ window.BLAST = window.BLAST || {};
 		for(var property in data) {
 			this[property] = data[property];
 		}
+		this.color = this.color || 'black';
 	};
 
 	blast.Rectangle.prototype.draw = function() {
@@ -19,7 +20,7 @@ window.BLAST = window.BLAST || {};
 		// blast.ctx.scale(this.scaleX, this.scaleY);
 		var x = (this.x + 0.5) | 0;
 		var y = (this.y + 0.5) | 0;
-		blast.ctx.fillStyle = '#000000';
+		blast.ctx.fillStyle = this.color;
 		// blast.ctx.beginPath();
 		blast.ctx.fillRect(x,y,this.width, this.height);
 		// blast.ctx.closePath();

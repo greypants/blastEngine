@@ -10,7 +10,11 @@ window.BLAST = window.BLAST || {};
 
 		createObjects: function() {
 			scene.missiles = [];
-			scene.enemies = [];
+			scene.enemies = [
+				new blast.Enemy(100),
+				new blast.Enemy(400, -1),
+				new blast.Enemy(600)
+			];
 			scene.ship = new blast.Ship();
 		},
 
@@ -45,6 +49,25 @@ window.BLAST = window.BLAST || {};
 				if(missile.isLive) {
 					missile.move();
 					missile.draw();
+				}
+			}
+
+			for (i = scene.enemies.length; i--;) {
+				var enemy = scene.enemies[i];
+				scene.checkCollisions(enemy);
+				enemy.move();
+				enemy.draw();
+			}
+		},
+
+		checkCollisions: function(enemy) {
+			for (var i = scene.missiles.length; i--;) {
+				var missile = scene.missiles[i];
+
+				if(blast.core.collision(enemy, missile)) {
+					missile.explode();
+					enemy.destroy();
+					return true;
 				}
 			}
 		}

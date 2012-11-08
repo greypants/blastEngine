@@ -25,6 +25,9 @@ window.BLAST = window.BLAST || {};
 	};
 
 	blast.Missile.prototype.reload = function() {
+		//fix this duplication
+		this.x = this.ship.x + this.ship.width / 2 - this.width / 2;
+		this.y = this.ship.y;
 		this.isLive = false;
 		this.ship.missiles.push(this);
 	};

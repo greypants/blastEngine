@@ -1,17 +1,16 @@
-window.BLAST = window.BLAST || {};
+window.GAME = window.GAME || {};
 
-(function(blast) {
+(function(game) {
 
-	var frames = blast.frames = {
+	var frames = game.frames = {
 		init: function() {
-			frames.actions = frames.actions || [];
 			window.addEventListener('blur', frames.pause, false);
 			window.addEventListener('focus', frames.play, false);
 		},
 
 		loop: function() {
 			frames.setDelta();
-			frames.runMethods();
+			frames.runFrameActions();
 			frames.animationFrame = window.requestAnimationFrame(frames.loop);
 		},
 
@@ -28,7 +27,7 @@ window.BLAST = window.BLAST || {};
 			}
 		},
 
-		runMethods: function() {
+		runFrameActions: function() {
 			for (var i = 0; i < frames.actions.length; i++) {
 				frames.actions[i]();
 			}
@@ -41,4 +40,4 @@ window.BLAST = window.BLAST || {};
 		}
 	};
 
-})(window.BLAST);
+})(window.GAME);

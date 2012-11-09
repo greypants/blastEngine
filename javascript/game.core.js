@@ -1,19 +1,24 @@
-window.BLAST = window.BLAST || {};
+window.GAME = window.GAME || {};
 
-(function(blast) {
+(function(game) {
 
-	var core = blast.core = {
-		createCanvas: function() {
-			blast.canvas = document.createElement("canvas");
-			blast.ctx = blast.canvas.getContext("2d");
-			blast.canvas.width = 800;
-			blast.canvas.height = 450;
-			document.body.appendChild(blast.canvas);
-		},
+	var core = game.core = {
 
 		addListeners: function() {
 			window.addEventListener('keydown', core.keydown, false);
 			window.addEventListener('keyup', core.keyup, false);
+		},
+
+		clearCanvas: function() {
+			game.ctx.clearRect(0, 0, game.canvas.width, game.canvas.height);
+		},
+
+		createCanvas: function(width, height) {
+			game.canvas = document.createElement("canvas");
+			game.ctx = game.canvas.getContext("2d");
+			game.canvas.width = width;
+			game.canvas.height = height;
+			document.body.appendChild(game.canvas);
 		},
 
 		getRandomNumber: function(min, max) {
@@ -21,11 +26,10 @@ window.BLAST = window.BLAST || {};
 		},
 
 		initGlobalVariables: function() {
-			blast.keysDown = [];
-			blast.missiles = [];
+			game.keysDown = [];
 		},
 
-		collision: function(a, b){
+		isCollision: function(a, b){
 			return  a.x <= (b.x + b.width) &&
 					b.x <= (a.x + a.width) &&
 					a.y <= (b.y + b.height) &&
@@ -45,18 +49,23 @@ window.BLAST = window.BLAST || {};
 		keydown: function(e) {
 			if(core.isGameKey(e)) {
 				e.preventDefault();
-				blast.keysDown[e.keyCode] = true;
-				blast.scene.checkKeys();
+				game.keysDown[e.keyCode] = true;
+				game.scene.checkKeys();
 			}
 		},
 
 		keyup: function(e) {
 			if(core.isGameKey(e)) {
 				e.preventDefault();
-				delete blast.keysDown[e.keyCode];
-				blast.scene.checkKeys();
+				delete game.keysDown[e.keyCode];
+				game.scene.checkKeys();
 			}
+		},
+
+		loadScene: function(name) {
+			game.scene = game.scenes[name];
+			game.scene.init();
 		}
 	};
 
-})(window.BLAST);
+})(window.GAME);

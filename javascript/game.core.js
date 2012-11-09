@@ -18,7 +18,7 @@ window.GAME = window.GAME || {};
 			game.ctx = game.canvas.getContext("2d");
 			game.canvas.width = width;
 			game.canvas.height = height;
-			document.body.appendChild(game.canvas);
+			document.getElementById('canvas-wrapper').appendChild(game.canvas);
 		},
 
 		getRandomNumber: function(min, max) {

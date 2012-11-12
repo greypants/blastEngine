@@ -11,6 +11,7 @@ window.GAME = window.GAME || {};
 			y: 0,
 			x: 0
 		};
+
 		this.init(properties);
 		this.ship = ship;
 		game.scene.missiles.push(this);

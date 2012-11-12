@@ -27,28 +27,6 @@ window.GAME = window.GAME || {};
 			}
 		},
 
-		checkKeys: function() {
-			var leftIsDown = 37 in game.keysDown;
-			var rightIsDown = 39 in game.keysDown;
-			var spacebarIsDown = 32 in game.keysDown;
-
-			if(!leftIsDown && !rightIsDown){
-				scene.ship.vx = 0;
-			}
-
-			if(leftIsDown) {
-				scene.ship.vx = scene.ship.speed * game.frames.delta * -1;
-			}
-
-			if(rightIsDown) {
-				scene.ship.vx = scene.ship.speed * game.frames.delta;
-			}
-
-			if(spacebarIsDown) {
-				scene.ship.fire();
-			}
-		},
-
 		createObjects: function() {
 			scene.missiles = [];
 			scene.enemies = [
@@ -60,6 +38,7 @@ window.GAME = window.GAME || {};
 		},
 
 		updateShip: function() {
+			scene.ship.respondToInput();
 			scene.ship.move();
 			scene.ship.draw();
 		},

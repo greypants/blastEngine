@@ -13,7 +13,7 @@ window.GAME = window.GAME || {};
 			rotation: 0, // radians
 			scale: 1,
 			vx: 0,
-			maxMissiles: 5,
+			maxMissiles: 3,
 			missiles: [],
 			repeatRate: 50 // Missiles per second
 		};

@@ -41,7 +41,7 @@ window.GAME = window.GAME || {};
 
 	game.Missile.prototype.reload = function() {
 		//fix this duplication
-		this.x = this.ship.x + this.ship.width / 2 - this.width / 2;
+		this.x = -this.height;
 		this.y = this.ship.y;
 		this.isLive = false;
 		this.ship.missiles.push(this);

@@ -29,12 +29,24 @@ window.GAME = window.GAME || {};
 
 		createObjects: function() {
 			scene.missiles = [];
-			scene.enemies = [
-				new game.Enemy(100),
-				new game.Enemy(400, -1),
-				new game.Enemy(600)
-			];
+			scene.loadEnemies();
 			scene.ship = new game.Ship();
+		},
+
+		loadEnemies: function() {
+			scene.enemies = [
+				new game.Enemy(100, 25),
+				new game.Enemy(250, 25),
+				new game.Enemy(400, 25),
+				new game.Enemy(550, 25),
+				new game.Enemy(700, 25),
+				new game.Enemy(100, 80, -1),
+				new game.Enemy(250, 80, -1),
+				new game.Enemy(400, 80, -1),
+				new game.Enemy(550, 80, -1),
+				new game.Enemy(700, 80, -1)
+
+			];
 		},
 
 		updateShip: function() {
@@ -44,11 +56,25 @@ window.GAME = window.GAME || {};
 		},
 
 		updateEnemies: function() {
+			var anyDestroyed = false;
+
 			for (i = scene.enemies.length; i--;) {
 				var enemy = scene.enemies[i];
-				scene.checkCollisions(enemy);
-				enemy.move();
-				enemy.draw();
+				if(enemy.isDestroyed) {
+					anyDestroyed = true;
+					delete scene.enemies[i];
+				} else {
+					scene.checkCollisions(enemy);
+					enemy.move();
+					enemy.draw();
+				}
+			}
+
+			if(anyDestroyed) {
+				scene.enemies.clean();
+				if(scene.enemies.length < 1) {
+					scene.loadEnemies();
+				}
 			}
 		},
 

@@ -2,7 +2,7 @@ window.GAME = window.GAME || {};
 
 (function(game) {
 
-	game.Enemy = function(startX, direction) {
+	game.Enemy = function(x, y, direction) {
 		var properties = {
 			image: new game.Image('/images/enemy.png'),
 			color: 'rgba(0, 0, 255, 0.25)',
@@ -14,11 +14,11 @@ window.GAME = window.GAME || {};
 			speed: 100,
 			vx: 100,
 			width: 50,
-			x: startX + game.core.getRandomNumber(-25, 25),
-			y: 25,
+			x: x + game.core.getRandomNumber(-25, 25),
+			y: y,
 			origin: {
-				x: startX,
-				y: 25
+				x: x,
+				y: y
 			}
 		};
 		this.set(properties);
@@ -27,15 +27,16 @@ window.GAME = window.GAME || {};
 	game.Enemy.prototype = new game.Object();
 
 	game.Enemy.prototype.destroy = function() {
-		var _this = this;
-			_this.color = 'red';
-		setTimeout(function(){
-			_this.color = 'rgba(0, 0, 255, 0.25)';
-		}, 500);
+		this.isHit = true;
+		this.vy = -200;
+		// this.isDestroyed = true;
 	};
 
 	game.Enemy.prototype.drawType = function() {
 		if(game.debug) {
+			if(this.isDestroyed) {
+				this.color = 'red';
+			}
 			// Show hit-area
 			game.ctx.fillStyle = this.color;
 			game.ctx.fillRect(0,0,this.width, this.height);
@@ -46,11 +47,16 @@ window.GAME = window.GAME || {};
 
 	game.Enemy.prototype.move = function() {
 		this.x += this.vx * this.direction * game.frames.delta;
-
-		if(this.x > this.origin.x + this.range) {
-			this.direction = -1;
-		} else if (this.x < this.origin.x - this.range) {
-			this.direction = 1;
+		if(this.isHit) {
+			this.y += this.vy * game.frames.delta;
+			this.rotation += 20 * game.frames.delta;
+			this.isDestroyed = this.y < -this.height;
+		} else {
+			if(this.x > this.origin.x + this.range) {
+				this.direction = -1;
+			} else if (this.x < this.origin.x - this.range) {
+				this.direction = 1;
+			}
 		}
 	};
 

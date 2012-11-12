@@ -4,7 +4,7 @@ This is the start of a super basic canvas game structure/framework/boilerplate-b
 
 This project is very much in flux, and may change quite a bit in the coming days.
 
-Check out the demo [here](http://greypants.github.com/blockblaster-bootstrap/).
+Check out the demo [here](http://greypants.github.com/blockblaster-boilerplate/).
 
 ##Documentation
 *In progress... :)*

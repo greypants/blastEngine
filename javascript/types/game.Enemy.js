@@ -19,7 +19,7 @@ window.GAME = window.GAME || {};
 				y: 25
 			}
 		};
-		this.init(properties);
+		this.set(properties);
 	};
 
 	game.Enemy.prototype = new game.Rectangle();

@@ -12,7 +12,7 @@ window.GAME = window.GAME || {};
 			x: 0
 		};
 
-		this.init(properties);
+		this.set(properties);
 		this.ship = ship;
 		game.scene.missiles.push(this);
 	};

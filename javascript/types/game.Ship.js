@@ -4,6 +4,7 @@ window.GAME = window.GAME || {};
 
 	game.Ship = function() {
 		var properties = {
+			image: new game.Image('/images/ship.png'),
 			x: 100,
 			y: 100,
 			width: 50,
@@ -18,14 +19,14 @@ window.GAME = window.GAME || {};
 		properties.x = game.canvas.width/2 - properties.width/2;
 		properties.y = game.canvas.height - properties.height -25;
 
-		this.init(properties);
+		this.set(properties);
 		this.now = 0;
 		this.then = 0;
 		this.fireButtonReleased = true;
 		this.loadMissiles();
 	};
 
-	game.Ship.prototype = new game.Rectangle();
+	game.Ship.prototype = new game.Object();
 
 	game.Ship.prototype.respondToInput = function(){
 		var pressed = game.input.pressed;
@@ -72,6 +73,16 @@ window.GAME = window.GAME || {};
 			this.then = this.now;
 		}
 	};
+
+	game.Ship.prototype.drawType = function() {
+		if(game.debug) {
+			// Show hit-area
+			game.ctx.fillStyle = 'rgba(0, 0, 255, 0.25)';
+			game.ctx.fillRect(0,0,this.width, this.height);
+			game.ctx.fill();
+		}
+		this.image.draw();
+	},
 
 	game.Ship.prototype.die = function() {
 		console.log('die!');

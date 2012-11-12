@@ -4,7 +4,7 @@ window.GAME = window.GAME || {};
 
 	game.Ship = function() {
 		var properties = {
-			image: new game.Image('/images/ship.png'),
+			image: new game.Image('images/ship.png'),
 			x: 100,
 			y: 100,
 			width: 50,

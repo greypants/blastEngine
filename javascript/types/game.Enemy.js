@@ -4,7 +4,7 @@ window.GAME = window.GAME || {};
 
 	game.Enemy = function(x, y, direction) {
 		var properties = {
-			image: new game.Image('/images/enemy.png'),
+			image: new game.Image('images/enemy.png'),
 			color: 'rgba(0, 0, 255, 0.25)',
 			direction: direction || 1,
 			height: 30,

@@ -1,14 +1,19 @@
-// Date.now polyfil For IE8 and earlier version.
-    if (!Date.now) {
-      Date.now = function() {
-        return new Date().getTime();
-      };
-    }
+/* ---------------------------------------------------------------
+    Date.now polyfil For IE8 and earlier version.
+    Based on https://gist.github.com/1035932
+   --------------------------------------------------------------- */
 
-// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-// requestAnimationFrame polyfill by Erik Möller
-// fixes from Paul Irish and Tino Zijdel
+    Date.now || (Date.now = function() {
+        return new Date().getTime();
+    });
+
+/* ---------------------------------------------------------------
+    requestAnimationFrame polyfill by Erik Möller
+    Fixes from Paul Irish and Tino Zijdel
+    http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+    http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+    --------------------------------------------------------------- */
+
     (function() {
         var lastTime = 0;
         var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -33,10 +38,12 @@
             };
     }());
 
-/*
+/* ---------------------------------------------------------------
     Array cleaner removes specfied value from array. In this case,
     I'm using it to remove 'undefined' objects in the array.
-*/
+    http://stackoverflow.com/questions/281264/remove-empty-elements-from-an-array-in-javascript
+    --------------------------------------------------------------- */
+
     Array.prototype.clean = function(deleteValue) {
         for (var i = 0; i < this.length; i++) {
             if (this[i] == deleteValue) {

@@ -10,6 +10,8 @@ window.GAME = window.GAME || {};
 			width: 50,
 			height: 50,
 			speed: 300,
+			rotation: 0, // radians
+			scale: 1,
 			vx: 0,
 			maxMissiles: 5,
 			missiles: [],

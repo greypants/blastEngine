@@ -17,17 +17,18 @@ window.GAME = window.GAME || {};
 		this.scale = this.scale || 1;
 	};
 
-	game.Object.prototype.draw = function(drawType) {
+	game.Object.prototype.draw = function() {
 		game.ctx.save();
 
 		// Round to whole pixel
 		var x = (this.x + 0.5) | 0;
 		var y = (this.y + 0.5) | 0;
 
-		// Apply Transformations
-		game.ctx.translate(x, y);
+		// Apply Transformations (scale and rotate from center)
+		game.ctx.translate(x + this.width / 2, y + this.height / 2);
 		game.ctx.rotate(this.rotation);
-		game.ctx.scale(this.scaleX, this.scaleY);
+		game.ctx.scale(this.scale, this.scale);
+		game.ctx.translate(-this.width/2, -this.height/2);
 
 		// Call extended Object Type's draw method
 		this.drawType && this.drawType();

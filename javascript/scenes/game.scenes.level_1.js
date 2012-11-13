@@ -7,6 +7,8 @@ window.GAME = window.GAME || {};
 	var scene = game.scenes.level_1 = {
 		init: function() {
 			scene.createObjects();
+
+			// Push methods to run every frame
 			game.frames.actions = [
 				game.core.clearCanvas,
 				scene.updateShip,
@@ -29,8 +31,12 @@ window.GAME = window.GAME || {};
 
 		createObjects: function() {
 			scene.missiles = [];
+			scene.ship = new game.Ship({
+				speed: 300,
+				maxMissiles: 3,
+				repeatRate: 30
+			});
 			scene.loadEnemies();
-			scene.ship = new game.Ship();
 		},
 
 		loadEnemies: function() {
@@ -45,7 +51,6 @@ window.GAME = window.GAME || {};
 				new game.Enemy(400, 80, -1),
 				new game.Enemy(550, 80, -1),
 				new game.Enemy(700, 80, -1)
-
 			];
 		},
 

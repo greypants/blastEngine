@@ -2,33 +2,33 @@ window.GAME = window.GAME || {};
 
 (function(game) {
 
-	game.Ship = function() {
-		var properties = {
-			image: new game.Image('images/ship.png'),
-			x: 100,
-			y: 100,
-			width: 50,
-			height: 50,
-			speed: 300,
-			rotation: 0, // radians
-			scale: 1,
-			vx: 0,
-			maxMissiles: 3,
-			missiles: [],
-			repeatRate: 50 // Missiles per second
-		};
-
-		properties.x = game.canvas.width/2 - properties.width/2;
-		properties.y = game.canvas.height - properties.height -25;
-
+	game.Ship = function(properties) {
 		this.set(properties);
-		this.now = 0;
-		this.then = 0;
-		this.fireButtonReleased = true;
+		this.setDefaults();
 		this.loadMissiles();
 	};
 
 	game.Ship.prototype = new game.Object();
+
+	game.Ship.prototype.setDefaults = function() {
+		this.fireButtonReleased = true;
+		this.image =  new game.Image('images/ship.png'),
+		this.missiles =  [],
+		this.now = 0;
+		this.then = 0;
+		this.rotation = 0; // radians
+		this.scale = 1;
+		this.vx = 0;
+		this.height = 50;
+		this.width = 50;
+		this.x = game.canvas.width / 2 - this.width / 2;
+		this.y = game.canvas.height - this.height - 25;
+
+		// User defineable settings
+		this.speed = this.speed || 300;
+		this.maxMissiles = this.maxMissiles || 3;
+		this.repeatRate = this.repeatRate || 30;
+	};
 
 	game.Ship.prototype.respondToInput = function(){
 		var pressed = game.input.pressed;

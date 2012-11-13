@@ -1,6 +1,4 @@
-# Blockblaster
-
-## A basic canvas game boilerplate
+# Blockblaster: A basic canvas game boilerplate
 
 I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this is to improve upon a few patterns, apply some lessons learned, and create a decent, re-usable starting point for my own future projects.
 

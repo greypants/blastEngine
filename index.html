@@ -10,18 +10,19 @@
 		<div id="canvas-wrapper"></div>
 		<p>Use left and right to move, and spacebar to shoot.</p>
 		<p><a href="https://github.com/greypants/blockblaster-boilerplate">View this project on GitHub</a></p>
-		<script src="javascript/dependencies/polyfills.js"></script>
-		<script src="javascript/types/game.Object.js"></script>
-		<script src="javascript/types/game.Rectangle.js"></script>
-		<script src="javascript/types/game.Image.js"></script>
-		<script src="javascript/types/game.Ship.js"></script>
-		<script src="javascript/types/game.Enemy.js"></script>
-		<script src="javascript/types/game.Missile.js"></script>
-		<script src="javascript/scenes/game.scenes.level_1.js"></script>
-		<script src="javascript/game.core.js"></script>
-		<script src="javascript/game.frames.js"></script>
-		<script src="javascript/game.input.js"></script>
-		<script src="javascript/game.init.js"></script>
-		<script>GAME.init();</script>
+		<script src="javascript/game.js"></script>
+		<script src="javascript/core/game.frames.js"></script>
+		<script src="javascript/core/game.input.js"></script>
+		<script src="javascript/core/types/game.Object.js"></script>
+		<script src="javascript/core/types/game.Image.js"></script>
+		<script src="javascript/core/types/game.Rectangle.js"></script>
+		<script src="javascript/games/BlockBlaster/BlockBlaster.js"></script>
+		<script src="javascript/games/BlockBlaster/types/Enemy.js"></script>
+		<script src="javascript/games/BlockBlaster/types/Missile.js"></script>
+		<script src="javascript/games/BlockBlaster/types/Ship.js"></script>
+		<script src="javascript/polyfills/array.clean.js"></script>
+		<script src="javascript/polyfills/date.now.js"></script>
+		<script src="javascript/polyfills/requestAnimationFrame.js"></script>
+		<script>Game.load(BlockBlaster);</script>
 	</body>
 </html>

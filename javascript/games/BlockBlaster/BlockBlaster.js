@@ -1,16 +1,13 @@
-window.GAME = window.GAME || {};
+var BlockBlaster = {};
 
-(function(game) {
-
-	game.scenes = game.scenes || {};
-
-	var scene = game.scenes.level_1 = {
+(function(){
+	var scene = BlockBlaster.initial = {
 		init: function() {
 			scene.createObjects();
 
 			// Push methods to run every frame
-			game.frames.actions = [
-				game.core.clearCanvas,
+			Game.frames.actions = [
+				Game.clearCanvas,
 				scene.updateShip,
 				scene.updateMissles,
 				scene.updateEnemies
@@ -21,7 +18,7 @@ window.GAME = window.GAME || {};
 			for (var i = scene.missiles.length; i--;) {
 				var missile = scene.missiles[i];
 
-				if(game.core.isCollision(enemy, missile)) {
+				if(Game.isCollision(enemy, missile)) {
 					missile.explode();
 					enemy.destroy();
 					return true;
@@ -31,7 +28,7 @@ window.GAME = window.GAME || {};
 
 		createObjects: function() {
 			scene.missiles = [];
-			scene.ship = new game.Ship({
+			scene.ship = new BlockBlaster.Ship({
 				speed: 300,
 				maxMissiles: 3,
 				repeatRate: 30
@@ -41,16 +38,16 @@ window.GAME = window.GAME || {};
 
 		loadEnemies: function() {
 			scene.enemies = [
-				new game.Enemy(100, 25),
-				new game.Enemy(250, 25),
-				new game.Enemy(400, 25),
-				new game.Enemy(550, 25),
-				new game.Enemy(700, 25),
-				new game.Enemy(100, 80, -1),
-				new game.Enemy(250, 80, -1),
-				new game.Enemy(400, 80, -1),
-				new game.Enemy(550, 80, -1),
-				new game.Enemy(700, 80, -1)
+				new BlockBlaster.Enemy(100, 25),
+				new BlockBlaster.Enemy(250, 25),
+				new BlockBlaster.Enemy(400, 25),
+				new BlockBlaster.Enemy(550, 25),
+				new BlockBlaster.Enemy(700, 25),
+				new BlockBlaster.Enemy(100, 80, -1),
+				new BlockBlaster.Enemy(250, 80, -1),
+				new BlockBlaster.Enemy(400, 80, -1),
+				new BlockBlaster.Enemy(550, 80, -1),
+				new BlockBlaster.Enemy(700, 80, -1)
 			];
 		},
 
@@ -93,5 +90,4 @@ window.GAME = window.GAME || {};
 			}
 		}
 	};
-
-})(window.GAME);
+})();

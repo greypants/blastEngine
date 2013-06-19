@@ -50,7 +50,6 @@ BlockBlaster.Enemy.prototype.drawType = function() {
 BlockBlaster.Enemy.prototype.reset = function() {
 	this.set(this.original);
 	this.y = -this.height;
-	console.log(this)
 };
 
 BlockBlaster.Enemy.prototype.move = function() {
@@ -77,7 +76,6 @@ BlockBlaster.Enemy.prototype.move = function() {
 	}
 
 	if(isOffscreen){
-		console.log('offscreen!')
 		this.reset();
 	}
 };

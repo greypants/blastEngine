@@ -15,8 +15,8 @@ BlockBlaster.Ship.prototype.setDefaults = function() {
 	this.rotation = 0; // radians
 	this.scale = 1;
 	this.vx = 0;
-	this.height = 50;
-	this.width = 50;
+	this.height = 160;
+	this.width = 160;
 	this.x = Game.canvas.width / 2 - this.width / 2;
 	this.y = Game.canvas.height - this.height - 25;
 

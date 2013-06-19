@@ -1,11 +1,12 @@
 BlockBlaster.Missile = function(ship) {
 	var properties = {
-		width: 10,
-		height: 20,
-		speed: 300,
+		image:  new Game.Image('images/missile.png'),
+		width: 26,
+		height: 46,
+		speed: 900,
 		vy: 0,
-		y: 0,
-		x: 0
+		y: ship.y,
+		x: ship.x + ship.width / 2 - 26 / 2
 	};
 
 	this.set(properties);
@@ -13,11 +14,22 @@ BlockBlaster.Missile = function(ship) {
 	Game.scene.missiles.push(this);
 };
 
-BlockBlaster.Missile.prototype = new Game.Rectangle();
+BlockBlaster.Missile.prototype = new Game.Object();
+
+BlockBlaster.Missile.prototype.drawType = function() {
+	if(Game.debug) {
+
+		// Show hit-area
+		Game.ctx.fillStyle = 'red';
+		Game.ctx.fillRect(0,0,this.width, this.height);
+		Game.ctx.fill();
+	}
+	this.image.draw();
+};
 
 BlockBlaster.Missile.prototype.explode = function() {
-	this.vy = 0;
-	this.reload();
+	// this.vy = 0;
+	// this.reload();
 };
 
 BlockBlaster.Missile.prototype.fire = function() {
@@ -38,7 +50,7 @@ BlockBlaster.Missile.prototype.move = function(direction) {
 BlockBlaster.Missile.prototype.reload = function() {
 	//fix this duplication
 	this.x = -this.height;
-	this.y = this.ship.y;
+	this.y = this.ship.y - this.height;
 	this.isLive = false;
 	this.ship.missiles.push(this);
 };

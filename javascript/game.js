@@ -1,6 +1,7 @@
 var Game = {
 	load: function(game) {
-		this.createCanvas(800, 450);
+		// this.debug = true;
+		this.createCanvas(1200, 675);
 		this.initGlobalVariables();
 		this.loadedGame = game;
 		this.loadScene('initial');
@@ -14,6 +15,8 @@ var Game = {
 	},
 
 	createCanvas: function(width, height) {
+		Game.height = height;
+		Game.width = width;
 		Game.canvas = document.createElement('canvas');
 		Game.ctx = Game.canvas.getContext('2d');
 		Game.canvas.width = width;
@@ -31,6 +34,12 @@ var Game = {
 	},
 
 	isCollision: function(a, b){
+		if(a.x <= (b.x + b.width) &&
+				b.x <= (a.x + a.width) &&
+				a.y <= (b.y + b.height) &&
+				b.y <= (a.y + a.height)){
+			console.log('isCollision!!!!')
+		}
 		return  a.x <= (b.x + b.width) &&
 				b.x <= (a.x + a.width) &&
 				a.y <= (b.y + b.height) &&

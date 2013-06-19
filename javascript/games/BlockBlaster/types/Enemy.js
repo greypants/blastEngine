@@ -3,21 +3,26 @@ BlockBlaster.Enemy = function(x, y, direction) {
 		image: new Game.Image('images/enemy.png'),
 		color: 'rgba(0, 0, 255, 0.25)',
 		direction: direction || 1,
-		height: 30,
+		height: 81,
 		maxMissiles: 5,
 		missiles: [],
 		range: 50,
+		rotation: 0,
+		isDestroyed: false,
+		isHit: false,
 		speed: 100,
 		vx: 100,
-		width: 50,
+		width: 97,
 		x: x + Game.getRandomNumber(-25, 25),
-		y: y,
+		y: y - 181,
+		vy: 100,
 		origin: {
 			x: x,
 			y: y
 		}
 	};
 	this.set(properties);
+	this.original = properties;
 };
 
 BlockBlaster.Enemy.prototype = new Game.Object();
@@ -25,7 +30,6 @@ BlockBlaster.Enemy.prototype = new Game.Object();
 BlockBlaster.Enemy.prototype.destroy = function() {
 	this.isHit = true;
 	this.vy = -200;
-	// this.isDestroyed = true;
 };
 
 BlockBlaster.Enemy.prototype.drawType = function() {
@@ -41,8 +45,23 @@ BlockBlaster.Enemy.prototype.drawType = function() {
 	this.image.draw();
 };
 
+BlockBlaster.Enemy.prototype.reset = function() {
+	this.set(this.original);
+	this.y = -this.height;
+	console.log(this)
+};
+
 BlockBlaster.Enemy.prototype.move = function() {
 	this.x += this.vx * this.direction * Game.frames.delta;
+	this.y += this.vy * Game.frames.delta;
+
+	isOffscreen = (
+		this.x > Game.width ||
+		this.x < -this.width ||
+		this.y > Game.height ||
+		(this.isDestroyed && this.y < this.height)
+	);
+
 	if(this.isHit) {
 		this.y += this.vy * Game.frames.delta;
 		this.rotation += 20 * Game.frames.delta;
@@ -53,5 +72,10 @@ BlockBlaster.Enemy.prototype.move = function() {
 		} else if (this.x < this.origin.x - this.range) {
 			this.direction = 1;
 		}
+	}
+
+	if(isOffscreen){
+		console.log('offscreen!')
+		this.reset();
 	}
 };

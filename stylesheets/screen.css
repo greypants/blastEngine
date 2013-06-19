@@ -1,6 +1,6 @@
 body {
 	-webkit-font-smoothing: antialiased;
-	background: #2d2d2d;
+	background: #000;
 	color: #f99157;
 	font-family: sans-serif;
 	font-weight: bold;
@@ -12,17 +12,19 @@ a {
 }
 
 #canvas-wrapper {
+	-webkit-animation: scroll 30s linear infinite;
+	background: url(/images/stars.png);
 	overflow: hidden;
 	position: relative;
 	border-radius: 5px;
-	width: 800px;
-	height: 450px;
+	width: 1200px;
+	height: 675px;
 	margin: auto;
 	margin-top: 20px;
 }
 
 #canvas-wrapper:after {
-	background: rgba(255, 255, 255, 0.18);
+	background: rgba(255, 255, 255, 0.04);
 	content: '';
 	display: block;
 	height: 550px;
@@ -39,7 +41,13 @@ a {
 }
 
 canvas {
-	background: #ceebce;
+	-webkit-animation: scroll 20s linear infinite;
+	background: url(/images/stars-2.png);
 	border-radius: 5px;
 	position: relative;
+}
+
+@-webkit-keyframes scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 637px; }
 }

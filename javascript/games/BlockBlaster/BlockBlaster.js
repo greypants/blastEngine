@@ -29,26 +29,28 @@ var BlockBlaster = {};
 		createObjects: function() {
 			scene.missiles = [];
 			scene.ship = new BlockBlaster.Ship({
-				speed: 300,
+				speed: 400,
 				maxMissiles: 3,
 				repeatRate: 30
 			});
-			scene.loadEnemies();
+			scene.loadEnemies(9);
 		},
 
-		loadEnemies: function() {
-			scene.enemies = [
-				new BlockBlaster.Enemy(100, 25),
-				new BlockBlaster.Enemy(250, 25),
-				new BlockBlaster.Enemy(400, 25),
-				new BlockBlaster.Enemy(550, 25),
-				new BlockBlaster.Enemy(700, 25),
-				new BlockBlaster.Enemy(100, 80, -1),
-				new BlockBlaster.Enemy(250, 80, -1),
-				new BlockBlaster.Enemy(400, 80, -1),
-				new BlockBlaster.Enemy(550, 80, -1),
-				new BlockBlaster.Enemy(700, 80, -1)
-			];
+		loadEnemies: function(count) {
+			scene.enemies = [];
+			var x = 100;
+			var y = -count * 100;
+			var i = 0;
+
+			while (i < count) {
+				scene.enemies.push(new BlockBlaster.Enemy(x, y - Game.getRandomNumber(0, 100)));
+				x += 200;
+				y += 100;
+				i++;
+				if( x > Game.width - 200) {
+					x = 100;
+				}
+			}
 		},
 
 		updateShip: function() {
@@ -75,7 +77,7 @@ var BlockBlaster = {};
 			if(anyDestroyed) {
 				scene.enemies.clean();
 				if(scene.enemies.length < 1) {
-					scene.loadEnemies();
+					scene.loadEnemies(9);
 				}
 			}
 		},

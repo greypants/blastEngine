@@ -1,6 +1,7 @@
 var Game = {
 	load: function(game) {
 		// this.debug = true;
+		this.audioPath = 'audio/';
 		this.createCanvas(1200, 675);
 		this.initGlobalVariables();
 		this.loadedGame = game;
@@ -34,12 +35,6 @@ var Game = {
 	},
 
 	isCollision: function(a, b){
-		if(a.x <= (b.x + b.width) &&
-				b.x <= (a.x + a.width) &&
-				a.y <= (b.y + b.height) &&
-				b.y <= (a.y + a.height)){
-			console.log('isCollision!!!!')
-		}
 		return  a.x <= (b.x + b.width) &&
 				b.x <= (a.x + a.width) &&
 				a.y <= (b.y + b.height) &&

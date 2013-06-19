@@ -20,7 +20,7 @@ var BlockBlaster = {};
 
 				if(Game.isCollision(enemy, missile)) {
 					missile.explode();
-					enemy.destroy();
+					!enemy.isHit && enemy.destroy();
 					return true;
 				}
 			}

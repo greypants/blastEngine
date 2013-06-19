@@ -19,7 +19,7 @@ BlockBlaster.Ship.prototype.setDefaults = function() {
 	this.width = 160;
 	this.x = Game.canvas.width / 2 - this.width / 2;
 	this.y = Game.canvas.height - this.height - 25;
-
+	this.laserSound = new Game.Sound('laser');
 	// User defineable settings
 	this.speed = this.speed || 300;
 	this.maxMissiles = this.maxMissiles || 3;
@@ -66,6 +66,7 @@ BlockBlaster.Ship.prototype.fire = function() {
 	var readyToFire = gunIsCool && missilesLoaded && this.fireButtonReleased;
 
 	if(readyToFire) {
+		this.laserSound.play();
 		this.fireButtonReleased = false;
 		this.missiles[0].fire();
 		this.then = this.now;

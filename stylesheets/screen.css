@@ -47,6 +47,16 @@ canvas {
 	position: relative;
 }
 
+canvas,
+#canvas-wrapper {
+	-webkit-animation-play-state: paused;
+}
+
+.animate canvas,
+.animate #canvas-wrapper {
+	-webkit-animation-play-state: running;
+}
+
 @-webkit-keyframes scroll {
   0%   { background-position: 0 0; }
   100% { background-position: 0 637px; }

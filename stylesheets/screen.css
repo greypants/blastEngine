@@ -23,23 +23,6 @@ a {
 	margin-top: 20px;
 }
 
-#canvas-wrapper:after {
-	background: rgba(255, 255, 255, 0.04);
-	content: '';
-	display: block;
-	height: 550px;
-	left: -150px;
-	position: absolute;
-	top: -400px;
-	width: 900px;
-	z-index: 2;
-	-webkit-transform: rotate(-20deg);
-	-moz-transform: rotate(-20deg);
-	-ms-transform: rotate(-20deg);
-	-o-transform: rotate(-20deg);
-	transform: rotate(-20deg);
-}
-
 canvas {
 	-webkit-animation: scroll 20s linear infinite;
 	background: url(/images/stars-2.png);

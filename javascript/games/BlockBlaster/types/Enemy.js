@@ -22,6 +22,7 @@ BlockBlaster.Enemy = function(x, y, direction) {
 		}
 	};
 	this.set(properties);
+	this.destroySound = new Game.Sound('/audio/enemy-hit');
 	this.original = properties;
 };
 
@@ -30,6 +31,7 @@ BlockBlaster.Enemy.prototype = new Game.Object();
 BlockBlaster.Enemy.prototype.destroy = function() {
 	this.isHit = true;
 	this.vy = -200;
+	this.destroySound.play();
 };
 
 BlockBlaster.Enemy.prototype.drawType = function() {

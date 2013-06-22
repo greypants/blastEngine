@@ -1,12 +1,12 @@
-BlockBlaster.Ship = function(properties) {
+SpaceBlaster.Ship = function(properties) {
 	this.set(properties);
 	this.setDefaults();
 	this.loadMissiles();
 };
 
-BlockBlaster.Ship.prototype = new Game.Object();
+SpaceBlaster.Ship.prototype = new Game.Object();
 
-BlockBlaster.Ship.prototype.setDefaults = function() {
+SpaceBlaster.Ship.prototype.setDefaults = function() {
 	this.fireButtonReleased = true;
 	this.image =  new Game.Image('images/ship.png'),
 	this.missiles =  [],
@@ -26,7 +26,7 @@ BlockBlaster.Ship.prototype.setDefaults = function() {
 	this.repeatRate = this.repeatRate || 30;
 };
 
-BlockBlaster.Ship.prototype.respondToInput = function(){
+SpaceBlaster.Ship.prototype.respondToInput = function(){
 	var pressed = Game.input.pressed;
 
 	this.vx = 0;
@@ -46,19 +46,19 @@ BlockBlaster.Ship.prototype.respondToInput = function(){
 	}
 };
 
-BlockBlaster.Ship.prototype.move = function(direction) {
+SpaceBlaster.Ship.prototype.move = function(direction) {
 	this.x += this.vx;
 };
 
-BlockBlaster.Ship.prototype.loadMissiles = function() {
+SpaceBlaster.Ship.prototype.loadMissiles = function() {
 	var i = 0;
 	while(i < this.maxMissiles) {
-		this.missiles.push(new BlockBlaster.Missile(this));
+		this.missiles.push(new SpaceBlaster.Missile(this));
 		i++;
 	}
 };
 
-BlockBlaster.Ship.prototype.fire = function() {
+SpaceBlaster.Ship.prototype.fire = function() {
 	this.now = Game.frames.now;
 	var fireDelta = (this.now - this.then)/1000;
 	var missilesLoaded = this.missiles.length > 0;
@@ -73,7 +73,7 @@ BlockBlaster.Ship.prototype.fire = function() {
 	}
 };
 
-BlockBlaster.Ship.prototype.drawType = function() {
+SpaceBlaster.Ship.prototype.drawType = function() {
 	if(Game.debug) {
 		// Show hit-area
 		Game.ctx.fillStyle = 'rgba(0, 0, 255, 0.25)';
@@ -83,6 +83,6 @@ BlockBlaster.Ship.prototype.drawType = function() {
 	this.image.draw();
 },
 
-BlockBlaster.Ship.prototype.die = function() {
+SpaceBlaster.Ship.prototype.die = function() {
 	console.log('die!');
 };

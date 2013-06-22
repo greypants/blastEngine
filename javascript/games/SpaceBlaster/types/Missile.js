@@ -1,4 +1,4 @@
-BlockBlaster.Missile = function(ship) {
+SpaceBlaster.Missile = function(ship) {
 	var properties = {
 		image:  new Game.Image('images/missile.png'),
 		width: 26,
@@ -14,9 +14,9 @@ BlockBlaster.Missile = function(ship) {
 	Game.scene.missiles.push(this);
 };
 
-BlockBlaster.Missile.prototype = new Game.Object();
+SpaceBlaster.Missile.prototype = new Game.Object();
 
-BlockBlaster.Missile.prototype.drawType = function() {
+SpaceBlaster.Missile.prototype.drawType = function() {
 	if(Game.debug) {
 
 		// Show hit-area
@@ -27,12 +27,12 @@ BlockBlaster.Missile.prototype.drawType = function() {
 	this.image.draw();
 };
 
-BlockBlaster.Missile.prototype.explode = function() {
+SpaceBlaster.Missile.prototype.explode = function() {
 	// this.vy = 0;
 	// this.reload();
 };
 
-BlockBlaster.Missile.prototype.fire = function() {
+SpaceBlaster.Missile.prototype.fire = function() {
 	this.x = this.ship.x + this.ship.width / 2 - this.width / 2;
 	this.y = this.ship.y;
 	this.vy = this.speed;
@@ -40,14 +40,14 @@ BlockBlaster.Missile.prototype.fire = function() {
 	this.ship.missiles.shift();
 };
 
-BlockBlaster.Missile.prototype.move = function(direction) {
+SpaceBlaster.Missile.prototype.move = function(direction) {
 	this.y -= this.vy * Game.frames.delta;
 	if(this.y < (0 - this.height)){
 		this.reload();
 	}
 };
 
-BlockBlaster.Missile.prototype.reload = function() {
+SpaceBlaster.Missile.prototype.reload = function() {
 	//fix this duplication
 	this.x = -this.height;
 	this.y = this.ship.y - this.height;

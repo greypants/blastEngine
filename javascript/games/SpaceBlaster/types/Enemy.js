@@ -1,4 +1,4 @@
-BlockBlaster.Enemy = function(x, y, direction) {
+SpaceBlaster.Enemy = function(x, y, direction) {
 	var properties = {
 		image: new Game.Image('images/enemy.png'),
 		color: 'rgba(0, 0, 255, 0.25)',
@@ -26,15 +26,15 @@ BlockBlaster.Enemy = function(x, y, direction) {
 	this.original = properties;
 };
 
-BlockBlaster.Enemy.prototype = new Game.Object();
+SpaceBlaster.Enemy.prototype = new Game.Object();
 
-BlockBlaster.Enemy.prototype.destroy = function() {
+SpaceBlaster.Enemy.prototype.destroy = function() {
 	this.isHit = true;
 	this.vy = -200;
 	this.destroySound.play();
 };
 
-BlockBlaster.Enemy.prototype.drawType = function() {
+SpaceBlaster.Enemy.prototype.drawType = function() {
 	if(Game.debug) {
 		if(this.isDestroyed) {
 			this.color = 'red';
@@ -47,12 +47,12 @@ BlockBlaster.Enemy.prototype.drawType = function() {
 	this.image.draw();
 };
 
-BlockBlaster.Enemy.prototype.reset = function() {
+SpaceBlaster.Enemy.prototype.reset = function() {
 	this.set(this.original);
 	this.y = -this.height;
 };
 
-BlockBlaster.Enemy.prototype.move = function() {
+SpaceBlaster.Enemy.prototype.move = function() {
 	this.x += this.vx * this.direction * Game.frames.delta;
 	this.y += this.vy * Game.frames.delta;
 

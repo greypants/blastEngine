@@ -30,14 +30,10 @@ canvas {
 	position: relative;
 }
 
-canvas,
-#canvas-wrapper {
+body:blur {
 	-webkit-animation-play-state: paused;
-}
-
-.animate canvas,
-.animate #canvas-wrapper {
-	-webkit-animation-play-state: running;
+	-moz-animation-play-state: paused;
+	animation-play-state: paused;
 }
 
 @-webkit-keyframes scroll {

@@ -1,7 +1,7 @@
-var BlockBlaster = {};
+var SpaceBlaster = {};
 
 (function(){
-	var scene = BlockBlaster.initial = {
+	var scene = SpaceBlaster.initial = {
 		init: function() {
 			scene.createObjects();
 
@@ -28,7 +28,7 @@ var BlockBlaster = {};
 
 		createObjects: function() {
 			scene.missiles = [];
-			scene.ship = new BlockBlaster.Ship({
+			scene.ship = new SpaceBlaster.Ship({
 				speed: 400,
 				maxMissiles: 3,
 				repeatRate: 30
@@ -43,7 +43,7 @@ var BlockBlaster = {};
 			var i = 0;
 
 			while (i < count) {
-				scene.enemies.push(new BlockBlaster.Enemy(x, y - Game.getRandomNumber(0, 100)));
+				scene.enemies.push(new SpaceBlaster.Enemy(x, y - Game.getRandomNumber(0, 100)));
 				x += 200;
 				y += 100;
 				i++;

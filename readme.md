@@ -1,6 +1,6 @@
 # BlastEngine 
 
-A basic framework for getting started with `canvas` game development
+### A basic framework for getting started with `canvas` game development
 
 I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this to share a simple starting point for anyone who wants to start playing around with canvas game dev.
 

@@ -12,6 +12,8 @@ Check out the demo [here](http://greypants.github.com/blastEngine/).
 
 The example I've created is a basic Galaga-esque space shooter. Right now, the game runs infinitely. You can blast bugs, but no collision detection has been set up on the ship itself - so you can't die. If you're here to learn and experiment, try hooking that up as your first goal!
 
+*Sweet game illustrations by [Joseph Le](http://www.josephle.net/)*
+
 
 ## Code Walk-through
 It is crucial to be as organized as possible. Game JS can get HUGE and nigh impossible to navigate if you're not careful. Break your code out into logical chucks and separate files and folders.  Helps you to keep your methods focused and specific, focusing on one concern at a time. Refactor often.

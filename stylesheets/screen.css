@@ -13,6 +13,8 @@ a {
 
 #canvas-wrapper {
 	-webkit-animation: scroll 30s linear infinite;
+	-moz-animation: scroll 30s linear infinite;
+	animation: scroll 30s linear infinite;
 	background: url(../images/stars.png);
 	overflow: hidden;
 	position: relative;
@@ -24,7 +26,9 @@ a {
 }
 
 canvas {
-	-webkit-animation: scroll 20s linear infinite;
+	-webkit-animation: scroll 30s linear infinite;
+	-moz-animation: scroll 30s linear infinite;
+	animation: scroll 30s linear infinite;
 	background: url(../images/stars-2.png);
 	border-radius: 5px;
 	position: relative;

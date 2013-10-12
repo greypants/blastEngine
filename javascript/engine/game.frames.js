@@ -1,5 +1,6 @@
 Game.frames = {
 	init: function() {
+		this.delta = 0;
 		window.addEventListener('blur', this.pause.bind(this), false);
 		window.addEventListener('focus', this.play.bind(this), false);
 	},

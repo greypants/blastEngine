@@ -23,7 +23,7 @@ Here's my current setup:
 ### File (JavaScript) structure:
 - javascript/engine
 	- All the core game engine logic. The logic in these files are completely game agnostic. You should be able to build any game on top of them.
-- javascript/engine/types
+- javascript/engine/objects
 	- These are reusable classes you may want to extend to create your game objects.
 
 - javascript/games

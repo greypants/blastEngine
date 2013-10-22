@@ -1,16 +1,18 @@
 # BlastEngine 
+![](https://raw.github.com/greypants/blastEngine/master/images/ship.png)
 
-### A basic framework for getting started with `canvas` game development
+### A starter framework for getting started with `canvas` game development
+#### [Click Here for Demo](http://greypants.github.com/blastEngine/)
 
-I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this to share a simple starting point for anyone who wants to start playing around with canvas game dev.
+I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this to share a simple starting point for anyone who wants to start playing around with canvas game dev. I also recently gave a talk about [HTML 5 Game dev with Canvas and JavaScript](http://greypants.github.io/html5-games-talk/#/) at ConvergeRVA and Front-end Design Conference. Check out those slides for more info.
 
-This is by no means meant to be a complete framework. There are core elements missing.
+This is by no means meant to be a complete framework, but rather a way to start experimenting and get your feet wet. There are core classes missing for things like Sprites and Tweens.
 
-## The Game
+I also chose to use plain vanilla JavaScript - no frameworks, libraries, script loaders, or compilation. I did this to keep the example simple, and to better expose the underlying principles at work. In real life, I'd probably be using the tools and syntax provided by CoffeeScript, Underscore.js, and Almond.js or Require.js.
 
-Check out the demo [here](http://greypants.github.com/blastEngine/).
+## The Sample Game
 
-The example I've created is a basic Galaga-esque space shooter. Right now, the game runs infinitely. You can blast bugs, but no collision detection has been set up on the ship itself - so you can't die. If you're here to learn and experiment, try hooking that up as your first goal!
+The example I've created is a bare-bones Galaga-esque space shooter. Right now, the game runs infinitely. You can blast bugs until your ship collides with one and the game resets.
 
 *Sweet game illustrations by [Joseph Le](http://www.josephle.net/)*
 

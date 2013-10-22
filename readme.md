@@ -12,6 +12,8 @@ I also chose to use plain vanilla JavaScript - no frameworks, libraries, script 
 
 ## The Sample Game
 
+![](https://raw.github.com/greypants/blastEngine/master/images/enemy.png)
+
 The example I've created is a bare-bones Galaga-esque space shooter. Right now, the game runs infinitely. You can blast bugs until your ship collides with one and the game resets.
 
 *Sweet game illustrations by [Joseph Le](http://www.josephle.net/)*

@@ -4,7 +4,7 @@
 ### A starter framework for getting started with `canvas` game development
 #### [Click Here for Demo](http://greypants.github.com/blastEngine/)
 
-I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this to share a simple starting point for anyone who wants to start playing around with canvas game dev. I also recently gave a talk about [HTML 5 Game dev with Canvas and JavaScript](http://greypants.github.io/html5-games-talk/#/) at ConvergeRVA and Front-end Design Conference. Check out those slides for more info.
+I've been working with `canvas` and [frame/time-based animations](http://viget.com/extend/time-based-animation) quite a bit [recently](http://puma.com/runpumarun). It's been a ton of fun, and I've learned quite a bit along the way. My purpose in creating this to share a simple starting point for anyone who wants to start playing around with canvas game dev. I also recently gave a talk about [HTML 5 Game dev with Canvas and JavaScript](http://greypants.github.io/html5-games-talk/#/) at [ConvergeRVA](http://convergerva.com/) and [Front-end Design Conference](http://frontenddesignconference.com/). Check out those slides for more info.
 
 This is by no means meant to be a complete framework, but rather a way to start experimenting and get your feet wet. There are core classes missing for things like Sprites and Tweens.
 

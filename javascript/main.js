@@ -1,0 +1,14 @@
+require(['javascript/engine/polyfills/array.clean.js'], function() {});
+require(['javascript/engine/polyfills/requestAnimationFrame.js'], function() {});
+require(['javascript/engine/game.js'], function() {});
+require(['javascript/engine/game.frames.js'], function() {});
+require(['javascript/engine/game.input.js'], function() {});
+require(['javascript/engine/objects/game.Sound.js'], function() {});
+require(['javascript/engine/objects/game.Object.js'], function() {});
+require(['javascript/engine/objects/game.Image.js'], function() {});
+require(['javascript/engine/objects/game.Rectangle.js'], function() {});
+require(['javascript/games/SpaceBlaster/SpaceBlaster.js'], function() {});
+require(['javascript/games/SpaceBlaster/objects/Enemy.js'], function() {});
+require(['javascript/games/SpaceBlaster/objects/Missile.js'], function() {});
+require(['javascript/games/SpaceBlaster/objects/Ship.js'], function() {});
+require(['javascript/init.js'], function() {});

@@ -1,11 +1,10 @@
-Game.Sound = function(src, loop) {
-	this.isEnabled = true;
-	this.createAudioElement(loop);
-	this.addSources(src, ['ogg', 'mp3']);
-	!loop & this.changePlayStateOnEnded();
-};
-
-Game.Sound.prototype = {
+Game.Sound = klass({
+	initialize: function(src, loop) {
+		this.isEnabled = true;
+		this.createAudioElement(loop);
+		this.addSources(src, ['ogg', 'mp3']);
+		!loop & this.changePlayStateOnEnded();
+	},
 
 	addSources: function(src, fileTypes) {
 		fileTypes.forEach(function(extension){
@@ -73,4 +72,4 @@ Game.Sound.prototype = {
 			this.isPlaying = false;
 		}
 	}
-};
+});

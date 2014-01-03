@@ -12,9 +12,6 @@ a {
 }
 
 #canvas-wrapper {
-	-webkit-animation: scroll 30s linear infinite;
-	-moz-animation: scroll 30s linear infinite;
-	animation: scroll 30s linear infinite;
 	background: url(../images/stars.png);
 	overflow: hidden;
 	position: relative;
@@ -23,15 +20,24 @@ a {
 	height: 675px;
 	margin: auto;
 	margin-top: 20px;
+
+	.animate-bg & {
+		-webkit-animation: scroll 30s linear infinite;
+		-moz-animation: scroll 30s linear infinite;
+		animation: scroll 30s linear infinite;
+	}
 }
 
 canvas {
-	-webkit-animation: scroll 30s linear infinite;
-	-moz-animation: scroll 30s linear infinite;
-	animation: scroll 30s linear infinite;
 	background: url(../images/stars-2.png);
 	border-radius: 5px;
 	position: relative;
+
+	.animate-bg & {
+		-webkit-animation: scroll 30s linear infinite;
+		-moz-animation: scroll 30s linear infinite;
+		animation: scroll 30s linear infinite;
+	}
 }
 
 body:blur {

@@ -5,6 +5,7 @@ var SpaceBlaster = {};
 		init: function() {
 			scene.elapsedTime = 0;
 			scene.createObjects();
+			this.initBackground();
 
 			// Push methods to run every frame
 			Game.frames.actions = [
@@ -44,6 +45,21 @@ var SpaceBlaster = {};
 				repeatRate: 30
 			});
 			scene.loadEnemies(9);
+		},
+
+		initBackground: function() {
+			var pauseBg = function() {
+				document.body.setAttribute('class', '');
+			};
+
+			var animateBg = function() {
+				document.body.setAttribute('class', 'animate');
+			};
+
+			window.addEventListener('blur', pauseBg, false);
+			window.addEventListener('focus', animateBg, false);
+
+			animateBg();
 		},
 
 		loadEnemies: function(count) {

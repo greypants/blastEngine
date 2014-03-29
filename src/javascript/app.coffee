@@ -1,1 +1,2 @@
-console.log require('./test')
+BlastEngine = require './spaceBlaster'
+engine = new BlastEngine()

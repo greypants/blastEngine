@@ -1,5 +1,0 @@
-(function() {
-
-	Game.load(SpaceBlaster);
-
-})();

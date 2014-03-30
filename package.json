@@ -21,6 +21,7 @@
     "gulp-compass": "~1.1.8",
     "gulp-util": "~2.2.14",
     "gulp-notify": "~1.2.4",
-    "gulp-imagemin": "~0.1.5"
+    "gulp-imagemin": "~0.1.5",
+    "gulp-changed": "~0.3.0"
   }
 }

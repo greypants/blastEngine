@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 
-module.exports = function(defaultTasks, standaloneTasks) {
-	standaloneTasks = standaloneTasks || [];
+module.exports = function(defaultTasks, otherTasks) {
+	otherTasks = otherTasks || [];
 
-	var allTasks = defaultTasks.concat(standaloneTasks);
+	var allTasks = defaultTasks.concat(otherTasks);
 
 	// Require and define each task in the list
 	allTasks.forEach(function(name) {

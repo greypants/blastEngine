@@ -1,10 +1,13 @@
 var defaultTasks = [
 	'serve',
-	'compass',
-	'images',
-	'audio',
-	'browserify',
 	'watch'
 ];
 
-require('./gulp')(defaultTasks);
+var otherTasks = [
+	'audio',
+	'browserify',
+	'compass',
+	'images'
+];
+
+require('./gulp')(defaultTasks, otherTasks);
